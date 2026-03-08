@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function ContactPage() {
     return (
         <div className="container mx-auto pb-20">
@@ -15,7 +17,7 @@ export default function ContactPage() {
 
             {/* Collaboration Section (Email) */}
             <div className="mx-4 rounded-[2.5rem] bg-gradient-to-br from-blue-400 to-indigo-700 p-8 lg:p-16 shadow-2xl mb-12 text-white relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/backgrounds/grid.svg')] opacity-20"></div>
+                <div className="absolute top-0 left-0 w-full h-full opacity-10" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
                 <div className="relative z-10">
                     <div className="max-w-3xl">
                         <h2 className="text-4xl md:text-5xl font-bold mb-6">¿Quieres colaborar?</h2>
@@ -36,10 +38,13 @@ export default function ContactPage() {
 
                 {/* Demon Image - Absolute Positioned in Corner */}
                 <div className="absolute -bottom-9 -right-9 hidden md:block">
-                    <img
+                    <Image
                         src="/images/demonio/demonio1.png"
                         alt="Demonio colaborador"
-                        className="h-64 w-auto object-contain animate-float drop-shadow-2xl opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                        width={256}
+                        height={256}
+                        className="h-64 w-auto object-contain drop-shadow-2xl opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                        loading="lazy"
                     />
                 </div>
             </div>

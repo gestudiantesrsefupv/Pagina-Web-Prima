@@ -1,8 +1,8 @@
 import { getAllPosts } from "@/lib/posts";
 import PostCard from "./PostCard";
 
-export default async function BlogPage() {
-    const posts = await getAllPosts();
+export default function BlogPage() {
+    const posts = getAllPosts();
 
     return (
         <div className="container mx-auto pb-20">

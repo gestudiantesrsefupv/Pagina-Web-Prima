@@ -1,8 +1,12 @@
 'use client';
 
+import Image from "next/image";
 import { futureActivities } from "@/lib/activities";
 
 export default function Home() {
+    const nextActivity = futureActivities && futureActivities.length > 0 ? futureActivities[0] : null;
+    const hasActivityImage = nextActivity && nextActivity.images && nextActivity.images.length > 0;
+
     return (
         <div className="container mx-auto pb-20">
             {/* Hero Section */}
@@ -31,10 +35,13 @@ export default function Home() {
                         </div>
                         <div className="flex-1 w-full">
                             <div className="relative h-64 md:h-80 w-full overflow-hidden rounded-3xl shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
-                                <img
+                                <Image
                                     src="/images/home/logo_RSEF.jpg"
                                     alt="RSEF Física"
-                                    className="h-full w-full object-contain bg-white"
+                                    fill
+                                    className="object-contain bg-white"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority
                                 />
                             </div>
                         </div>
@@ -44,10 +51,13 @@ export default function Home() {
                     <div className="flex flex-col md:flex-row items-center gap-12">
                         <div className="flex-1 w-full order-2 md:order-1">
                             <div className="relative h-64 md:h-80 w-full overflow-hidden rounded-3xl shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
-                                <img
+                                <Image
                                     src="/images/home/ENEF25.jpeg"
                                     alt="Grupo de Estudiantes"
-                                    className="h-full w-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -67,10 +77,13 @@ export default function Home() {
                             <div className="mb-6">
                                 <div className="flex items-center gap-4">
                                     <h2 className="text-4xl font-bold text-gray-900">Tu Delegación Local</h2>
-                                    <img
+                                    <Image
                                         src="/images/home/d.maxwell_01.png"
                                         alt="Mascota Maxwell"
+                                        width={128}
+                                        height={128}
                                         className="h-32 w-auto object-contain animate-bounce"
+                                        loading="lazy"
                                     />
                                 </div>
                                 <p className="text-sm font-bold text-blue-600 tracking-wider mt-2">Nosotros: GdeE-UPV</p>
@@ -81,10 +94,13 @@ export default function Home() {
                         </div>
                         <div className="flex-1 w-full">
                             <div className="relative h-64 md:h-80 w-full overflow-hidden rounded-3xl shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
-                                <img
+                                <Image
                                     src="/images/home/DELE.jpg"
                                     alt="Delegación UPV"
-                                    className="h-full w-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -108,11 +124,14 @@ export default function Home() {
                 {/* Preview del Post */}
                 <div className="group relative overflow-hidden rounded-3xl bg-gray-50 transition-all hover:shadow-lg">
                     <div className="flex flex-col md:flex-row">
-                        <div className="h-64 md:h-auto md:w-1/3 overflow-hidden">
-                            <img
+                        <div className="relative h-64 md:h-auto md:w-1/3 overflow-hidden">
+                            <Image
                                 src="/images/blog/delegacion.jpg"
                                 alt="Delegación Efectiva"
-                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                loading="lazy"
                             />
                         </div>
                         <div className="flex flex-col justify-center p-8 md:w-2/3">
@@ -137,47 +156,54 @@ export default function Home() {
             </div>
 
             {/* Isla: Próxima Actividad */}
-            <div className="mx-4 rounded-[2.5rem] bg-white p-8 shadow-2xl lg:p-12">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900">Próxima Actividad</h2>
-                    <a
-                        href="/actividades"
-                        className="rounded-full bg-gray-100 px-6 py-3 text-sm font-bold text-gray-900 transition-all hover:bg-emerald-100 hover:text-emerald-700"
-                    >
-                        Ver todas las actividades &rarr;
-                    </a>
-                </div>
+            {nextActivity && (
+                <div className="mx-4 rounded-[2.5rem] bg-white p-8 shadow-2xl lg:p-12">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+                        <h2 className="text-3xl font-bold text-gray-900">Próxima Actividad</h2>
+                        <a
+                            href="/actividades"
+                            className="rounded-full bg-gray-100 px-6 py-3 text-sm font-bold text-gray-900 transition-all hover:bg-emerald-100 hover:text-emerald-700"
+                        >
+                            Ver todas las actividades &rarr;
+                        </a>
+                    </div>
 
-                {/* Preview de la Actividad */}
-                <div className="group relative overflow-hidden rounded-3xl bg-gray-50 transition-all hover:shadow-lg">
-                    <div className="flex flex-col md:flex-row">
-                        <div className="h-64 md:h-auto md:w-1/3 overflow-hidden">
-                            <img
-                                src={futureActivities[0].images[0]}
-                                alt={futureActivities[0].title}
-                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                        </div>
-                        <div className="flex flex-col justify-center p-8 md:w-2/3">
-                            <span className="mb-3 w-fit rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-600">
-                                {futureActivities[0].date}
-                            </span>
-                            <h3 className="mb-4 text-2xl font-bold text-gray-900">
-                                {futureActivities[0].title}
-                            </h3>
-                            <p className="mb-6 text-gray-600 line-clamp-2">
-                                {futureActivities[0].excerpt}
-                            </p>
-                            <a
-                                href="/actividades"
-                                className="font-bold text-emerald-600 hover:text-emerald-800"
-                            >
-                                Ver detalles del evento
-                            </a>
+                    {/* Preview de la Actividad */}
+                    <div className="group relative overflow-hidden rounded-3xl bg-gray-50 transition-all hover:shadow-lg">
+                        <div className="flex flex-col md:flex-row">
+                            <div className="relative h-64 md:h-auto md:w-1/3 overflow-hidden">
+                                {hasActivityImage && (
+                                    <Image
+                                        src={nextActivity.images[0]}
+                                        alt={nextActivity.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        loading="lazy"
+                                    />
+                                )}
+                            </div>
+                            <div className="flex flex-col justify-center p-8 md:w-2/3">
+                                <span className="mb-3 w-fit rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-600">
+                                    {nextActivity.date}
+                                </span>
+                                <h3 className="mb-4 text-2xl font-bold text-gray-900">
+                                    {nextActivity.title}
+                                </h3>
+                                <p className="mb-6 text-gray-600 line-clamp-2">
+                                    {nextActivity.excerpt}
+                                </p>
+                                <a
+                                    href="/actividades"
+                                    className="font-bold text-emerald-600 hover:text-emerald-800"
+                                >
+                                    Ver detalles del evento
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

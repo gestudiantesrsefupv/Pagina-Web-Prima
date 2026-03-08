@@ -1,8 +1,9 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import "./globals.css";
 import Footer from "./components/Footer";
 import { Inter } from "next/font/google";
@@ -13,18 +14,33 @@ export default function RootLayout({ children }) {
     const pathname = usePathname();
     const [scrollY, setScrollY] = useState(0);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const rafRef = useRef(null);
+
+    const handleScroll = useCallback(() => {
+        if (rafRef.current) return;
+        rafRef.current = requestAnimationFrame(() => {
+            setScrollY(window.scrollY);
+            rafRef.current = null;
+        });
+    }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
         // Set initial value
-        handleScroll();
+        setScrollY(window.scrollY);
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            if (rafRef.current) {
+                cancelAnimationFrame(rafRef.current);
+            }
+        };
+    }, [handleScroll]);
+
+    // Close mobile menu on route change
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [pathname]);
 
     // Configuración de la animación
     const maxScroll = 400; // Scroll "profundo" para completar la animación
@@ -76,7 +92,14 @@ export default function RootLayout({ children }) {
                             }}
                         >
                             <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                                <img src="/images/logo.png" alt="Logo" className="h-8 w-auto object-contain" />
+                                <Image
+                                    src="/images/logo.png"
+                                    alt="Logo"
+                                    width={32}
+                                    height={32}
+                                    className="h-8 w-auto object-contain"
+                                    priority
+                                />
                             </Link>
                         </div>
 
