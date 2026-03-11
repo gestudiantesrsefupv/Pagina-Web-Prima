@@ -60,9 +60,9 @@ export default function RootLayout({ children }) {
 
     const navLinks = [
         { name: "Inicio", href: "/" },
-        { name: "Blog", href: "/blog" },
         { name: "Actividades", href: "/actividades" },
         { name: "Miembros", href: "/sobre-nosotros" },
+        { name: "Blog", href: "/blog" },
         { name: "Contáctanos", href: "/contactanos" },
     ];
 

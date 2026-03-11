@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 // ---------------------
 //  Placeholder posts
@@ -260,6 +261,18 @@ export default function BlogPage() {
                             <p className="text-base font-medium">Pulsa «Ver artículos» para explorar el blog</p>
                         </div>
                     )}
+                </div>
+
+                {/* Demon Image - Absolute Positioned in Corner */}
+                <div className="absolute -bottom-9 -right-9 hidden md:block">
+                    <Image
+                        src="/images/demonio/demonio1.png"
+                        alt="Demonio blog"
+                        width={256}
+                        height={256}
+                        className="h-64 w-auto object-contain drop-shadow-2xl opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                        loading="lazy"
+                    />
                 </div>
             </div>
         </div>
