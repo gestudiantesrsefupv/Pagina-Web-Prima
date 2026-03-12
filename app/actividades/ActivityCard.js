@@ -34,10 +34,10 @@ export default function ActivityCard({ activity }) {
             {/* Tarjeta Pequeña (Vista Previa) */}
             <div
                 onClick={() => setIsOpen(true)}
-                className="group flex flex-col h-full rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden cursor-pointer"
+                className="group flex flex-col h-[450px] rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden cursor-pointer"
             >
                 {/* Imagen de portada (Primera imagen) */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-48 w-full overflow-hidden flex-shrink-0">
                     <Image
                         src={activity.images[0]}
                         alt={activity.title}
@@ -47,21 +47,25 @@ export default function ActivityCard({ activity }) {
                     />
                 </div>
 
-                <div className="flex flex-col flex-grow p-6">
-                    <div className="mb-4">
+                <div className="flex flex-col flex-grow p-6 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
+                    <div className="mb-4 flex-shrink-0">
                         <span className="text-xs font-bold text-emerald-600 uppercase tracking-wide">
                             {activity.date}
                         </span>
-                        <h2 className="text-xl font-bold text-gray-900 mt-2 line-clamp-2">
+                        <h2 className="text-xl font-bold text-gray-900 mt-2">
                             {activity.title}
                         </h2>
                     </div>
-                    <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
-                        {activity.excerpt}
-                    </p>
-                    <span className="text-sm font-semibold text-emerald-600 group-hover:underline">
-                        Ver detalles &rarr;
-                    </span>
+                    <div className="flex-grow">
+                        <p className="text-gray-600 text-sm mb-4">
+                            {activity.excerpt}
+                        </p>
+                    </div>
+                    <div className="mt-auto pt-2 flex-shrink-0">
+                        <span className="text-sm font-semibold text-emerald-600 group-hover:underline">
+                            Ver detalles &rarr;
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -75,7 +79,7 @@ export default function ActivityCard({ activity }) {
                     />
 
                     {/* Contenedor del Modal */}
-                    <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col">
+                    <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col" style={{ scrollbarWidth: 'thin' }}>
 
                         {/* Botón Cerrar */}
                         <button
@@ -88,7 +92,7 @@ export default function ActivityCard({ activity }) {
                         </button>
 
                         {/* Galería de Imágenes */}
-                        <div className="relative h-64 sm:h-96 w-full bg-gray-100 group">
+                        <div className="relative h-64 sm:h-96 w-full flex-shrink-0 bg-gray-100 group">
                             <Image
                                 src={activity.images[currentImageIndex]}
                                 alt={`${activity.title} - Imagen ${currentImageIndex + 1}`}
@@ -132,7 +136,7 @@ export default function ActivityCard({ activity }) {
                         </div>
 
                         {/* Contenido */}
-                        <div className="p-8 sm:p-10">
+                        <div className="p-8 sm:p-10 flex-grow">
                             <div className="mb-6">
                                 <span className="text-sm font-bold text-emerald-600 uppercase tracking-wide">
                                     {activity.date}
