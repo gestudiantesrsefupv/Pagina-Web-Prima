@@ -9,72 +9,56 @@ import Image from 'next/image';
 const PLACEHOLDER_POSTS = [
     {
         id: 1,
-        tag: 'Física',
-        date: '10 mar 2025',
-        author: 'Equipo GdeE UPV',
-        title: 'Introducción a la mecánica cuántica para estudiantes',
+        tag: 'Entrevista',
+        date: '7 mar 2026',
+        author: 'Delegación UPV',
+        title: 'Entrevista a Juan Calderón Bustillo – Investigador en Ondas Gravitacionales. Parte I',
         excerpt:
-            'Exploramos los fundamentos del mundo cuántico: superposición, entrelazamiento y el principio de incertidumbre de Heisenberg explicados de forma accesible.',
-        readTime: '5 min',
-        content: `
-            <p>La mecánica cuántica es una de las teorías más exitosas de la física moderna. A pesar de su fama de ser contraintuitiva, sus predicciones han sido verificadas con una precisión sin precedentes.</p>
-            <h3>¿Por qué cuántica?</h3>
-            <p>El término "cuántico" proviene del latín <em>quantum</em> (cantidad). Describe la granularidad fundamental de la naturaleza: la energía no varía de forma continua, sino en paquetes discretos llamados cuantos.</p>
-            <p>En los próximos artículos exploraremos la ecuación de Schrödinger, la función de onda y sus implicaciones filosóficas.</p>
-        `,
+            '¿Cuáles son las diferencias entre trabajar en empresa y en investigación? ¿Cómo puede un investigador en ondas gravitacionales trabajar en el FC Barcelona?',
+        readTime: '10 min',
+        url: 'https://estudiantes.rsef.es/blog/2026/03/07/Entrevista-Juan-I/',
+        image: '/images/blog/asistencia.jpg',
     },
     {
         id: 2,
         tag: 'Eventos',
-        date: '24 feb 2025',
-        author: 'Comité Organizador',
-        title: 'Crónica del Seminario de Astrofísica UPV 2025',
+        date: '28 feb 2026',
+        author: 'Delegación UPV',
+        title: 'GdeE por el mundo: Sonsoles y Àlex en el ALM 2026 en Washington D.C.',
         excerpt:
-            'Resumen de las ponencias y talleres del seminario anual de astrofísica celebrado en la Escuela de Ingeniería Aeroespacial de la UPV.',
-        readTime: '4 min',
-        content: `
-            <p>El pasado 20 de febrero celebramos la quinta edición del Seminario de Astrofísica UPV con la participación de más de 150 estudiantes y 8 ponentes invitados.</p>
-            <h3>Destacados</h3>
-            <p>Las sesiones abarcaron desde la detección de ondas gravitacionales, con la colaboración de un investigador del LIGO, hasta un taller práctico de procesado de imágenes del telescopio James Webb.</p>
-        `,
+            'A principios de febrero la vicepresidenta del Grupo de Estudiantes, Sonsoles Riscos Martínez, y el internacionalista (RR.II.), aquí un servidor, fuimos invitados...',
+        readTime: '8 min',
+        url: 'https://estudiantes.rsef.es/blog/2026/02/28/ALM_Guitart/',
+        image: '/images/blog/confianza.jpg',
     },
     {
         id: 3,
         tag: 'Divulgación',
-        date: '15 ene 2025',
-        author: 'Equipo GdeE UPV',
-        title: 'El año de la física: hitos científicos de 2024',
+        date: '12 mar 2026',
+        author: 'Pau Pastor',
+        title: 'Esto es un post de prueba',
         excerpt:
-            'Repasamos los descubrimientos más importantes del año pasado: desde nuevos materiales superconductores hasta avances en computación cuántica.',
-        readTime: '6 min',
-        content: `
-            <p>El año 2024 ha sido prolífico para la física. Destacan los avances en superconductividad a temperatura ambiente y los primeros prototipos de procesadores cuánticos con corrección de errores integrada.</p>
-            <p>Además, el Nobel de Física fue otorgado por contribuciones al aprendizaje automático con redes neuronales artificiales, subrayando la transversalidad de la física.</p>
-        `,
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec metus vel ante feugiat finibus. Nullam nec metus vel ante feugiat finibus.',
+        readTime: '8 min',
+        url: 'https://estudiantes.rsef.es/blog/2026/03/07/Entrevista-Juan-I/',
+        image: '/images/blog/herramientas.jpg',
     },
     {
         id: 4,
-        tag: 'Recursos',
-        date: '5 ene 2025',
-        author: 'Equipo GdeE UPV',
-        title: 'Guía de recursos para preparar las Olimpiadas de Física',
+        tag: 'Entrevista',
+        date: '15 ene 2026',
+        author: 'Delegación UPV',
+        title: 'Entrevista a Anxo Fariña Biasi – Investigador en Física Matemática. Parte III',
         excerpt:
-            'Recopilamos libros, problemas resueltos y consejos de exalumnos para ayudarte a preparar las fases local y nacional de las Olimpiadas de Física.',
-        readTime: '3 min',
-        content: `
-            <p>Cada año recibimos muchas preguntas sobre cómo prepararse para las Olimpiadas de Física.</p>
-            <h3>Libros recomendados</h3>
-            <ul>
-                <li>Irodov – <em>Problems in General Physics</em></li>
-                <li>Halliday, Resnick &amp; Krane – <em>Physics</em></li>
-                <li>Purcell – <em>Electricity and Magnetism</em></li>
-            </ul>
-        `,
+            '¿Qué es exactamente lo que investiga un físico matemático? ¿Cómo lo hace y qué herramientas utiliza? ¿Cómo se pueden estudiar los agujeros negros con física...',
+        readTime: '12 min',
+        url: 'https://estudiantes.rsef.es/blog/2026/01/15/Entrevista-Anxo-III/',
+        image: '/images/blog/ejemplo.jpeg',
     },
 ];
 
 const TAG_COLORS = {
-    Física: 'bg-blue-100 text-blue-700',
+    Entrevista: 'bg-blue-100 text-blue-700',
     Eventos: 'bg-emerald-100 text-emerald-700',
     Divulgación: 'bg-purple-100 text-purple-700',
     Recursos: 'bg-orange-100 text-orange-700',
@@ -84,77 +68,44 @@ const TAG_COLORS = {
 //  Post card component
 // ---------------------
 function PlaceholderPostCard({ post }) {
-    const [isOpen, setIsOpen] = useState(false);
-
     return (
-        <>
-            <div className="flex flex-col h-full rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
-                <div className="flex flex-col flex-grow p-6">
-                    <div className="mb-4">
-                        <div className="flex items-center gap-2 flex-wrap">
-                            <span className={`rounded-full px-3 py-1 text-xs font-bold ${TAG_COLORS[post.tag] ?? 'bg-gray-100 text-gray-600'}`}>
-                                {post.tag}
-                            </span>
-                            <span className="text-sm font-medium text-gray-400">{post.date}</span>
-                            <span className="text-sm text-gray-400">· {post.readTime} lectura</span>
-                        </div>
-                        <p className="mt-1 text-sm font-medium text-gray-500">Por {post.author}</p>
-                    </div>
-                    <h3 className="text-xl font-bold leading-snug text-gray-900 mb-3 line-clamp-2">
-                        {post.title}
-                    </h3>
-                    <p className="flex-grow text-gray-600 leading-relaxed line-clamp-3 text-sm">
-                        {post.excerpt}
-                    </p>
-                    <button
-                        onClick={() => setIsOpen(true)}
-                        className="mt-5 w-full rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                        Leer artículo completo
-                    </button>
-                </div>
-            </div>
-
-            {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-                    <div
-                        className="absolute inset-0 bg-black/30 backdrop-blur-md"
-                        onClick={() => setIsOpen(false)}
+        <a
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col h-full rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+        >
+            {post.image && (
+                <div className="w-full h-48 sm:h-56 relative overflow-hidden bg-gray-100 border-b border-gray-100 shrink-0">
+                    <img
+                        src={post.image}
+                        alt={post.title}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white shadow-2xl">
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-gray-500 hover:bg-white hover:text-gray-900 transition-colors backdrop-blur-sm shadow-sm"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                        <div className="p-8 sm:p-12">
-                            <div className="mb-8 border-b border-gray-100 pb-8">
-                                <div className="flex items-center gap-3 flex-wrap mb-2">
-                                    <span className={`rounded-full px-3 py-1 text-xs font-bold ${TAG_COLORS[post.tag] ?? 'bg-gray-100 text-gray-600'}`}>
-                                        {post.tag}
-                                    </span>
-                                    <span className="text-sm font-medium text-gray-500">{post.date}</span>
-                                    <span className="text-sm text-gray-400">· {post.readTime} lectura</span>
-                                </div>
-                                <p className="text-base font-medium text-gray-600">
-                                    Escrito por <span className="text-gray-900">{post.author}</span>
-                                </p>
-                                <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
-                                    {post.title}
-                                </h2>
-                            </div>
-                            <div
-                                className="prose prose-lg prose-blue max-w-none text-gray-600 leading-relaxed"
-                                dangerouslySetInnerHTML={{ __html: post.content }}
-                            />
-                        </div>
-                    </div>
                 </div>
             )}
-        </>
+            <div className="flex flex-col flex-grow p-6">
+                <div className="mb-4">
+                    <div className="flex items-center gap-2 flex-wrap">
+                        <span className={`rounded-full px-3 py-1 text-xs font-bold ${TAG_COLORS[post.tag] ?? 'bg-gray-100 text-gray-600'}`}>
+                            {post.tag}
+                        </span>
+                        <span className="text-sm font-medium text-gray-400">{post.date}</span>
+                        <span className="text-sm text-gray-400">· {post.readTime} lectura</span>
+                    </div>
+                    <p className="mt-1 text-sm font-medium text-gray-500">Por {post.author}</p>
+                </div>
+                <h3 className="text-xl font-bold leading-snug text-gray-900 mb-3 line-clamp-2">
+                    {post.title}
+                </h3>
+                <p className="flex-grow text-gray-600 leading-relaxed line-clamp-3 text-sm">
+                    {post.excerpt}
+                </p>
+                <div className="mt-5 w-full rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-center">
+                    Leer en estudiantes.rsef.es
+                </div>
+            </div>
+        </a>
     );
 }
 
@@ -215,11 +166,11 @@ export default function BlogPage() {
                     <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-8">
                         <div>
                             <span className="inline-block rounded-full bg-emerald-100 text-emerald-700 px-4 py-1 text-sm font-semibold mb-3">
-                                Blog de la delegación · UPV
+                                En el blog nacional · GdeE
                             </span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Nuestro blog</h2>
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Nuestras publicaciones</h2>
                             <p className="mt-3 text-lg text-gray-600 max-w-xl">
-                                Artículos escritos por los miembros de la Delegación de Estudiantes de Física de la UPV.
+                                Artículos escritos por miembros de la Delegación y publicados en el Blog Nacional del GdeE.
                             </p>
                         </div>
                         <button
