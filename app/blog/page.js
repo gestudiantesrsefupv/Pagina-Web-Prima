@@ -196,10 +196,21 @@ export default function BlogPage() {
                     </div>
 
                     {showInternal && (
-                        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 items-start mt-4">
-                            {PLACEHOLDER_POSTS.map((post) => (
-                                <PlaceholderPostCard key={post.id} post={post} />
-                            ))}
+                        <div className="flex flex-col items-center justify-center py-20 mt-4 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 relative overflow-hidden">
+                            {/* Decorative background text */}
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+                                <span className="text-[8rem] md:text-[12rem] font-black text-gray-100 tracking-widest opacity-60">
+                                    🍳
+                                </span>
+                            </div>
+                            <div className="relative z-10 flex flex-col items-center gap-4">
+                                <span className="text-5xl md:text-7xl font-black bg-gradient-to-r from-blue-600 via-purple-500 to-emerald-500 bg-clip-text text-transparent tracking-tight animate-pulse">
+                                    cocinando...
+                                </span>
+                                <p className="text-gray-400 text-lg font-medium mt-2">
+                                    Estamos preparando artículos increíbles para ti 🔬
+                                </p>
+                            </div>
                         </div>
                     )}
 
